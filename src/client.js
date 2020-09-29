@@ -1,17 +1,32 @@
-const https = require("https");
+'use strict';
+
+const http = require("http");
+const utils = require("./utils");
 //const parser = require("parser");
 
+const baiduAppId = "20200927000574240";
+const baiduKey = "BgiDzsIc8fpM5bjNRbxg";
+
+/**-------------baidu------------ */
+function generateBaiduSign(appid, query, salt, key) {
+    let str = appid + query + salt + key;
+    return utils.md5(str);
+}
+
 // automate detection, translate to Chinese
-function auto2zh(text) {
-    let url = `https://translate.google.cn/#view=home&op=\
-                translate&sl=en&tl=zh-CN&text=${text}`;
-    https.get(url, (res) => {
-        res.on("data", (d) => {
-            console.log(d.toString('utf8'));
-        });
-    }).on("error", (e) => {
-        console.error(e);
+async function baidu_auto2zh(query) {
+    let url = 'http://api.fanyi.baidu.com/api/trans/vip/translate?'
+    url += `q=${query}&`;
+    url += `from=auto&to=zh&`;
+    url += `appid=${baiduAppId}&`;
+    let salt = utils.getRandomInt(10000);
+    url += `salt=${salt}&`;
+    let sign = generateBaiduSign(baiduAppId, query, salt, baiduKey);
+    url += `sign=${sign}`;
+
+    http.get(url, (res) => {
+        
     });
 }
 
-auto2zh("hello");
+baidu_auto2zh("hello");
