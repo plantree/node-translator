@@ -21,13 +21,7 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-      
-      # Code scan
-      - name: SonarCloud Scan
-        uses: SonarSource/sonarcloud-github-action@v1.4
-        with:
-          projectBaseDir: ./src
-
+    
       # Setup Nodejs version
       - name: Setup Node
         uses: actions/setup-node@v1.4.3

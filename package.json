@@ -1,0 +1,11 @@
+{
+    "dependencies": {
+        "commander": "^6.1.0"
+    },
+    "devDependencies": {
+        "mocha": "3.0.2"
+    },
+    "scripts": {
+        "test": "mocha"
+    }
+}

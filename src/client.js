@@ -14,7 +14,7 @@ function generateBaiduSign(appid, query, salt, key) {
 }
 
 // automate detection, translate to Chinese
-async function baidu_auto2zh(query) {
+function baidu_auto2zh(query, callback) {
     let url = 'http://api.fanyi.baidu.com/api/trans/vip/translate?'
     url += `q=${query}&`;
     url += `from=auto&to=zh&`;
@@ -25,8 +25,31 @@ async function baidu_auto2zh(query) {
     url += `sign=${sign}`;
 
     http.get(url, (res) => {
-        
+        utils.getJSON(res, callback);
     });
 }
 
-baidu_auto2zh("hello");
+// automate detection, translate to Chinese
+function baidu_auto2en(query, callback) {
+    let url = 'http://api.fanyi.baidu.com/api/trans/vip/translate?'
+    url += `q=${query}&`;
+    url += `from=auto&to=en&`;
+    url += `appid=${baiduAppId}&`;
+    let salt = utils.getRandomInt(10000);
+    url += `salt=${salt}&`;
+    let sign = generateBaiduSign(baiduAppId, query, salt, baiduKey);
+    url += `sign=${sign}`;
+
+    http.get(url, (res) => {
+        utils.getJSON(res, callback);
+    });
+}
+
+module.exports = {
+    "baidu_auto2zh": baidu_auto2zh,
+    "baidu_auto2en": baidu_auto2en,
+}
+
+// self-test
+//baidu_auto2zh("hello world", console.log);
+// baidu_auto2en("你好世界", console.log);
