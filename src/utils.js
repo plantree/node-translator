@@ -12,7 +12,7 @@ function md5(data) {
     return cryto.createHash("md5").update(data).digest("hex");
 }
 
-function getJSON(res, callback) {
+function getJSON(res, parser, callback) {
     const { statusCode } = res;
     let error;
     if (statusCode !== 200) {
@@ -31,7 +31,7 @@ function getJSON(res, callback) {
     res.on('end', () => {
         try {
             const parsedData = JSON.parse(rawData);
-            const parseRes = parser.parseBaiduRes(parsedData);
+            const parseRes = parser(parsedData);
             if (parseRes !== '') {
                 callback(parseRes);
             }
@@ -61,6 +61,11 @@ function printGreen(text) {
 
 function printCyan(text) {
     console.log("\x1B[36m%s\x1B[0m", text);
+
+}
+
+function printMagenta(text) {
+    console.log("\x1B[35m%s\x1B[0m", text);
 }
 
 module.exports = {
@@ -70,4 +75,5 @@ module.exports = {
     "checkLanguage": checkLanguage,
     "printGreen": printGreen,
     "printCyan": printCyan,
+    "printMagenta": printMagenta,
 }

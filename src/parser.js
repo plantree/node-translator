@@ -1,6 +1,6 @@
 'use strict';
 
-function parseBaiduRes(data) {
+function parseBaiduTranslateRes(data) {
     if (data.hasOwnProperty("error_code")) {
         console.error(`ErrorCode: ${data['error_code']}`);
         return '';
@@ -9,6 +9,20 @@ function parseBaiduRes(data) {
     }
 }
 
+function parseDetectLanguageRes(data) {
+    if (data.hasOwnProperty("error_code")) {
+        if (data["error_code"] !== 0) {
+            console.error(`ErrorCode: ${data['error_code']}, ErrorMsg: ${data['error_msg']}`);
+            return '';
+        } else {
+            return data['data']['src'];
+        }
+    } else {
+        return '';
+    }
+}
+
 module.exports = {
-    "parseBaiduRes": parseBaiduRes,
+    "parseBaiduTranslateRes": parseBaiduTranslateRes,
+    "parseDetectLanguageRes": parseDetectLanguageRes,
 }

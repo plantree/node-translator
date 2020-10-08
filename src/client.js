@@ -2,7 +2,7 @@
 
 const http = require("http");
 const utils = require("./utils");
-//const parser = require("parser");
+const parser = require("./parser");
 
 const baiduAppId = "20200927000574240";
 const baiduKey = "BgiDzsIc8fpM5bjNRbxg";
@@ -25,7 +25,7 @@ function baidu_auto2zh(query, callback) {
     url += `sign=${sign}`;
 
     http.get(url, (res) => {
-        utils.getJSON(res, callback);
+        utils.getJSON(res, parser.parseBaiduTranslateRes, callback);
     });
 }
 
@@ -41,13 +41,28 @@ function baidu_auto2en(query, callback) {
     url += `sign=${sign}`;
 
     http.get(url, (res) => {
-        utils.getJSON(res, callback);
+        utils.getJSON(res, parser.parseBaiduTranslateRes, callback);
+    });
+}
+
+function detectLanguage(query, callback) {
+    let url = 'http://api.fanyi.baidu.com/api/trans/vip/language?';
+    url += `q=${query}&`;
+    url += `appid=${baiduAppId}&`;
+    let salt = utils.getRandomInt(10000);
+    url += `salt=${salt}&`;
+    let sign = generateBaiduSign(baiduAppId, query, salt, baiduKey);
+    url += `sign=${sign}`;
+
+    http.get(url, (res) => {
+        utils.getJSON(res, parser.parseDetectLanguageRes, callback);
     });
 }
 
 module.exports = {
     "baidu_auto2zh": baidu_auto2zh,
     "baidu_auto2en": baidu_auto2en,
+    "detectLanguage": detectLanguage,
 }
 
 // self-test
