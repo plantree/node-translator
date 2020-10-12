@@ -1,4 +1,7 @@
 {
+    "bin": {
+        "translator": "src/app.js"
+    },
     "dependencies": {
         "commander": "^6.1.0"
     },

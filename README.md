@@ -1,5 +1,5 @@
 # node-translator
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) ![CI](https://github.com/plantree/node-translator/workflows/CI/badge.svg)
 
 A CLI translator based on the API from public area and Node.js.
 
@@ -15,4 +15,4 @@ A CLI translator based on the API from public area and Node.js.
 
 ### License
 
-MIT @[plantree](eric.wangpy@outlook.com)
+MIT @[plantree](https://plantree.me)
