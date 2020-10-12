@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: node-translator CI
+name: node-translator CI (Windows)
 
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the master branch
@@ -15,9 +15,7 @@ jobs:
   # This workflow contains a single job called "build"
   build:
     # The type of runner that the job will run on
-    runs-on: ubuntu-latest
     runs-on: windows-latest
-    runs-on: macos-latest
 
     # variables
     strategy:
