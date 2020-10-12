@@ -43,6 +43,10 @@ if (program.interactive) {
             state = "en";
             utils.printMagenta(`(Interactive mode, translate to ${define.languageMap[state]}. <q> to quit.)`);
             process.stdout.write("> ");
+        } else if (input === "set auto") {
+            state = "auto";
+            utils.printMagenta("(Interactive mode, detect language automatically. <q> to quit.)");                process.stdout.write("> ");
+            process.stdout.write("> ");
         } else if (state === "auto") {
             client.detectLanguage(input, (src) => {
                 if (src !== "zh") {
