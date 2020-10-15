@@ -1,6 +1,9 @@
 {
+    "name": "translator-me",
+    "version": "0.0.1",
+    "description": "A CLI translator based on the API from public areas, like Baidu Translate",
     "bin": {
-        "translator": "src/app.js"
+        "translator-me": "bin/app.js"
     },
     "dependencies": {
         "commander": "^6.1.0"
@@ -10,5 +13,17 @@
     },
     "scripts": {
         "test": "mocha"
-    }
+    },
+    "keywords": [
+        "translate",
+        "interactive",
+        "CLI"
+    ],
+    "author": "plantree",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/plantree/node-translator.git"
+    },
+    "homepage": "https://github.com/plantree/node-translator"
 }

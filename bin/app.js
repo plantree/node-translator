@@ -4,10 +4,10 @@
 
 const { program } = require("commander");
 const readline = require("readline");
-const client = require("./client");
-const utils = require("./utils");
-const define = require("./define");
-const parser = require("./parser");
+const client = require("../src/client");
+const utils = require("../src/utils");
+const define = require("../src/define");
+const parser = require("../src/parser");
 
 var defaultEngine = "baidu";
 
@@ -45,7 +45,7 @@ if (program.interactive) {
             process.stdout.write("> ");
         } else if (input === "set auto") {
             state = "auto";
-            utils.printMagenta("(Interactive mode, detect language automatically. <q> to quit.)");                process.stdout.write("> ");
+            utils.printMagenta("(Interactive mode, detect language automatically. <q> to quit.)");                
             process.stdout.write("> ");
         } else if (state === "auto") {
             client.detectLanguage(input, (src) => {
