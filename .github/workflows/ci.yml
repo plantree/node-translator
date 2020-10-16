@@ -32,15 +32,6 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{matrix.node-version}}
-      
-      # Code Coverage
-      - name: Code quality
-        uses: codecov/codecov-action-node@v1
-        with:
-          token: ${{secrets.CODECOV_TOKEN}} #required
-          file: ./coverage.xml              #optional
-          flags: unittests                  #optional
-          name: codecov-umbrella            #optional
 
       # Run
       - name: Install Dependencies
