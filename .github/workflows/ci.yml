@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: node-translator CI (Windows)
+name: node-translator CI
 
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the master branch
@@ -15,7 +15,7 @@ jobs:
   # This workflow contains a single job called "build"
   build:
     # The type of runner that the job will run on
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     # variables
     strategy:
@@ -32,10 +32,19 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{matrix.node-version}}
+      
+      # Code Coverage
+      - name: Code quality
+        uses: iansu/codecov-action-node@v1
+        with:
+          token: ${{secrets.CODECOV_TOKEN}} #required
+          file: ./coverage.xml              #optional
+          flags: unittests                  #optional
+          name: codecov-umbrella            #optional
 
       # Run
       - name: Install Dependencies
         run: npm ci
-      - name: run test
+      - name: Run test
         run: npm test
     
