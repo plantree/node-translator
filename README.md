@@ -1,5 +1,5 @@
 # node-translator
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT) ![CI](https://github.com/plantree/node-translator/workflows/CI/badge.svg) ![build:passed](https://www.travis-ci.org/plantree/node-translator.svg?branch=master&status=passed)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT) ![CI](https://github.com/plantree/node-translator/workflows/CI/badge.svg) ![Travis](https://www.travis-ci.org/plantree/node-translator.svg?branch=master)
 
 A CLI translator based on the API from public areas and Node.js.
 
