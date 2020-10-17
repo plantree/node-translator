@@ -1,7 +1,7 @@
 # node-translator
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) ![CI](https://github.com/plantree/node-translator/workflows/CI/badge.svg)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT) ![CI](https://github.com/plantree/node-translator/workflows/CI/badge.svg) ![build:passed](https://www.travis-ci.org/plantree/node-translator.svg?branch=master&status=passed)
 
-A CLI translator based on the API from public area and Node.js.
+A CLI translator based on the API from public areas and Node.js.
 
 ### Features
 
@@ -13,7 +13,7 @@ A CLI translator based on the API from public area and Node.js.
 ### Install
 
 ```bash
-npm install node-translator
+npm install -g translator-me
 ```
 
 ### Usage
@@ -23,7 +23,7 @@ There are two modes while using this translator.
 - CLI
 
   ```bash
-  Usage: app [options]
+  Usage: translator-me [options]
   
   Options:
     -v, --version        output the version number
@@ -34,15 +34,24 @@ There are two modes while using this translator.
     -h, --help           display help for command
   ```
 
-  
-
 - Interactive
 
-  
+  Interactive mode supports setting different destination language, and the source language is been automatically detected.
+
+  - set en, means the destination language is English
+  - set zh, means the destination language is Chinese
+  - set auto, means that if the source language is English, the destination language is Chines, and vice versa.
+  - q, means quit.
+
+#### Demo
+
+
 
 ### Reference
 1. [https://www.ruanyifeng.com/blog/2015/05/command-line-with-node.html](https://www.ruanyifeng.com/blog/2015/05/command-line-with-node.html)
 2. [https://blog.csdn.net/guang_s/article/details/90380581](https://blog.csdn.net/guang_s/article/details/90380581)
+3. https://zhuanlan.zhihu.com/p/37316872
+4. https://juejin.im/post/6844903709101522951
 
 ### License
 
