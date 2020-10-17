@@ -5,9 +5,40 @@ A CLI translator based on the API from public area and Node.js.
 
 ### Features
 
+- Interactive mode, auto language detection
+- Simple spelling correction
+- Based on the API from Baidu Translate (currently)
+- Only support English and Chinese (currently)
+
 ### Install
 
+```bash
+npm install node-translator
+```
+
 ### Usage
+
+There are two modes while using this translator.
+
+- CLI
+
+  ```bash
+  Usage: app [options]
+  
+  Options:
+    -v, --version        output the version number
+    -i, --interactive    interactive mode
+    -f, --from [value]   from language (default: "en")
+    -t, --to [value]     to languahe (default: "zh")
+    -q, --query <value>  query text
+    -h, --help           display help for command
+  ```
+
+  
+
+- Interactive
+
+  
 
 ### Reference
 1. [https://www.ruanyifeng.com/blog/2015/05/command-line-with-node.html](https://www.ruanyifeng.com/blog/2015/05/command-line-with-node.html)
