@@ -17,7 +17,7 @@ program
 program
     .option("-i, --interactive", "interactive mode")
     .option("-f, --from [value]", "from language", "en")
-    .option("-t, --to [value]", "to languahe", "zh")
+    .option("-t, --to [value]", "to language", "zh")
     .option("-q, --query <value>", "query text")
     // has default help
 program.parse(process.argv);
